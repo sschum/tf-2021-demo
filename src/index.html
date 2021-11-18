@@ -5,8 +5,22 @@
     <title>Techfriday - 2021 - Demo</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/vue.js"></script>
 </head>
 <body class="container">
     <h1>Hello World</h1>
+
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+    </script>
 </body>
 </html>
