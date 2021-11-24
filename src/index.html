@@ -6,6 +6,7 @@
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <script src="./js/vue.js"></script>
+    <script src="./js/card.js"></script>
 </head>
 <body class="container">
     <h1>Hello World</h1>
@@ -26,13 +27,7 @@
 
         <div class="row">
             <div class="col-6" v-for="(card, i) of cards" :key="card.id">
-                <div class="card" v-on:click="removeCard(i)">
-                    <div :class="i % 2 === 0 ? 'bg-primary' : 'bg-secondary'">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ card.content }} ({{ card.id }})</h5>
-                        </div>
-                    </div>
-                </div>
+                <card></card>
             </div>
         </div>
     </div>
