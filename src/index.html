@@ -6,6 +6,7 @@
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <script src="./js/vue.js"></script>
+    <script src="./js/vuex.js"></script>
     <script src="./js/vue-router.js"></script>
 
     <!-- global components -->
@@ -26,10 +27,23 @@
             </li>
         </ul>
 
+        <p>Store-Counter: {{ storeCount }}</p>
+
         <router-view></router-view>
     </div>
 
     <script>
+        const store = new Vuex.Store({
+            state: {
+                count: 0
+            },
+            mutations: {
+                increment (state) {
+                    state.count++
+                }
+            }
+        })
+
         const router = new VueRouter({
             routes: [
                 { path: "/hello", component: pages['hello'] },
@@ -39,7 +53,13 @@
 
         let app = new Vue({
             el: '#app',
-            router
+            router,
+            store,
+            computed: {
+                storeCount(){
+                    return this.$store.state.count
+                }
+            }
         })
     </script>
 </body>
